@@ -1,0 +1,27 @@
+<div class="grid-x grid-margin-x">
+  <div class="cell small-12 medium-6 align-self-bottom">
+    <h1>Events</h1>
+  </div>
+  <div class="cell small-12 medium-6">
+    <mat-form-field appearance="outline" class="width-100">
+      <input matInput type="search" placeholder="search" [(ngModel)]="filterText"/>
+      <mat-icon matSuffix>search</mat-icon>
+    </mat-form-field>
+  </div>
+  <div class="cell">
+    <hr class="u-mt-0">
+  </div>
+</div>
+<div [class.align-center]="(events$|async).length==0" class="grid-x grid-margin-x">
+  <div class="cell small-12 medium-4 u-mb-1">
+    <mat-card class="add-new u-bg-secondary u-bg-hvr-alpha25 position-relative u-cursor-pointer" (click)="onAddNewEvent()">
+      <div class="add-new-icon u-circle u-circle-0 u-bg-light">
+        <mat-icon class="u-fg-alpha50">add</mat-icon>
+      </div>
+      <div class="u-fg-light"><h2 class="u-m-1">Add New Events</h2></div>
+    </mat-card>
+  </div>
+  <div *ngFor="let event of (events$ | async| search: filterText: 'name': 'address')" class="cell small-12 medium-4 u-mb-1">
+    <app-event-item [event]="event"></app-event-item>
+  </div>
+</div>

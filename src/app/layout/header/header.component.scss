@@ -1,0 +1,36 @@
+@import '../../../assets/scss/variables';
+
+
+.app-header {
+    min-height: $site-header-height !important;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 2;
+    background-color: map-get($site-colors, light);
+    border-bottom: 1px solid map-get($site-colors, grey3)!important;
+    box-shadow: 0 0.25rem 0.75rem rgba(0, 0, 0, .05);
+    .top-bar-left {
+      flex: 1 1 auto !important;
+      margin-right: auto !important;
+      div.toggle {
+        height: 45px;
+        display: flex;
+        align-items: center;
+        >a{
+          display: flex;
+          margin: 0 1rem;
+          align-items: center;
+        }
+      }
+    }
+    .top-bar-right {
+      flex: 0 1 auto !important;
+      margin-left: auto !important;
+    }
+
+    .logo{
+      height: 40px !important;
+    }
+  }

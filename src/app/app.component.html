@@ -1,0 +1,20 @@
+<app-header (toggleMenu)="onToggleMenu()"></app-header>
+<div class="main-content-wrapper" [appMediaQueryMatcher] (queryChange)="onMediaQueryChange($event)">
+  <mat-sidenav-container (backdropClick)="onToggleMenu()">
+      <mat-sidenav #sidenavMain class="sidenav-main" [opened]="mobileQuery.matches" [mode]="mobileQuery.matches ? 'side' : 'over'" position="left">
+          <div class="close">
+              <div *ngIf="!mobileQuery.matches">
+                  <a class="cursor-pointer" (click)="onToggleMenu()">
+                      <mat-icon>close</mat-icon>
+                  </a>
+              </div>
+          </div>
+          <app-left-nav></app-left-nav>
+      </mat-sidenav>
+      <mat-sidenav-content>
+          <div class="grid-container u-pt-1 u-pb-1">
+             <router-outlet></router-outlet>
+          </div>
+      </mat-sidenav-content>
+  </mat-sidenav-container>
+</div>

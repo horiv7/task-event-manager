@@ -1,0 +1,352 @@
+@mixin site-background($color-map, $prefix: "u") {
+  @each $key, $val in $color-map {
+    .#{$prefix}-bg-#{$key}{
+      background-color: $val !important;
+    }
+  }
+}
+
+@mixin site-foreground($color-map, $prefix: "u") {
+  @each $key, $val in $color-map {
+    .#{$prefix}-fg-#{$key}{
+      color: $val !important;
+    }
+  }
+}
+
+@mixin site-hover($color-map, $prefix: "u", $ease: true) {
+  @each $key, $val in $color-map {
+    .#{$prefix}-hvr-#{$key}:hover {
+      @if $ease {
+        transition: all 0.35s ease;
+      }
+      color: $val !important;
+    }
+    .#{$prefix}-bg-hvr-#{$key}:hover {
+      @if $ease {
+        transition: all 0.35s ease;
+      }
+      background-color: $val !important;
+    }
+  }
+}
+
+@mixin site-link($color-map, $prefix: "u", $ease: true) {
+  @each $key, $val in $color-map {
+    a.#{$prefix}-lnk-#{$key},
+    a.#{$prefix}-lnk-#{$key}:link,
+    a.#{$prefix}-lnk-#{$key}:visited,
+    a.#{$prefix}-lnk-#{$key}:active {
+      @if $ease {
+        transition: all 0.35s ease;
+      }
+      text-decoration: none;
+      color: $val;
+    }
+  }
+}
+
+@mixin site-padding($unit: "rem", $prefix: "u", $sizes: 20, $responsive: true) {
+  @for $i from 0 through $sizes {
+    .#{$prefix}-p-#{$i} {
+      padding: #{$i}#{$unit} !important;
+    }
+    .#{$prefix}-pl-#{$i} {
+      padding-left: #{$i}#{$unit} !important;
+    }
+    .#{$prefix}-pr-#{$i} {
+      padding-right: #{$i}#{$unit} !important;
+    }
+    .#{$prefix}-pt-#{$i} {
+      padding-top: #{$i}#{$unit} !important;
+    }
+    .#{$prefix}-pb-#{$i} {
+      padding-bottom: #{$i}#{$unit} !important;
+    }
+    .#{$prefix}-px-#{$i} {
+      padding-left: #{$i}#{$unit} !important;
+      padding-right: #{$i}#{$unit} !important;
+    }
+    .#{$prefix}-py-#{$i} {
+      padding-top: #{$i}#{$unit} !important;
+      padding-bottom: #{$i}#{$unit} !important;
+    }
+  }
+
+  @if $responsive {
+    @include breakpoint(small only) {
+      @for $i from 0 through $sizes {
+        .#{$prefix}-p-#{$i}\@small {
+          padding: #{$i}#{$unit} !important;
+        }
+        .#{$prefix}-pl-#{$i}\@small {
+          padding-left: #{$i}#{$unit} !important;
+        }
+        .#{$prefix}-pr-#{$i}\@small {
+          padding-right: #{$i}#{$unit} !important;
+        }
+        .#{$prefix}-pt-#{$i}\@small {
+          padding-top: #{$i}#{$unit} !important;
+        }
+        .#{$prefix}-pb-#{$i}\@small {
+          padding-bottom: #{$i}#{$unit} !important;
+        }
+        .#{$prefix}-px-#{$i}\@small {
+          padding-left: #{$i}#{$unit} !important;
+          padding-right: #{$i}#{$unit} !important;
+        }
+        .#{$prefix}-py-#{$i}\@small {
+          padding-top: #{$i}#{$unit} !important;
+          padding-bottom: #{$i}#{$unit} !important;
+        }
+      }
+    }
+
+    @include breakpoint(medium) {
+      @for $i from 0 through $sizes {
+        .#{$prefix}-p-#{$i}\@medium {
+          padding: #{$i}#{$unit} !important;
+        }
+        .#{$prefix}-pl-#{$i}\@medium {
+          padding-left: #{$i}#{$unit} !important;
+        }
+        .#{$prefix}-pr-#{$i}\@medium {
+          padding-right: #{$i}#{$unit} !important;
+        }
+        .#{$prefix}-pt-#{$i}\@medium {
+          padding-top: #{$i}#{$unit} !important;
+        }
+        .#{$prefix}-pb-#{$i}\@medium {
+          padding-bottom: #{$i}#{$unit} !important;
+        }
+        .#{$prefix}-px-#{$i}\@medium {
+          padding-left: #{$i}#{$unit} !important;
+          padding-right: #{$i}#{$unit} !important;
+        }
+        .#{$prefix}-py-#{$i}\@medium {
+          padding-top: #{$i}#{$unit} !important;
+          padding-bottom: #{$i}#{$unit} !important;
+        }
+      }
+    }
+
+    @include breakpoint(large) {
+      @for $i from 0 through $sizes {
+        .#{$prefix}-p-#{$i}\@large {
+          padding: #{$i}#{$unit} !important;
+        }
+        .#{$prefix}-pl-#{$i}\@large {
+          padding-left: #{$i}#{$unit} !important;
+        }
+        .#{$prefix}-pr-#{$i}\@large {
+          padding-right: #{$i}#{$unit} !important;
+        }
+        .#{$prefix}-pt-#{$i}\@large {
+          padding-top: #{$i}#{$unit} !important;
+        }
+        .#{$prefix}-pb-#{$i}\@large {
+          padding-bottom: #{$i}#{$unit} !important;
+        }
+        .#{$prefix}-px-#{$i}\@large {
+          padding-left: #{$i}#{$unit} !important;
+          padding-right: #{$i}#{$unit} !important;
+        }
+        .#{$prefix}-py-#{$i}\@large {
+          padding-top: #{$i}#{$unit} !important;
+          padding-bottom: #{$i}#{$unit} !important;
+        }
+      }
+    }
+  }
+}
+
+@mixin site-margin($unit: "rem", $prefix: "u", $sizes: 20, $responsive: true) {
+  @for $i from 0 through $sizes {
+    .#{$prefix}-m-#{$i} {
+      margin: #{$i}#{$unit} !important;
+    }
+    .#{$prefix}-ml-#{$i} {
+      margin-left: #{$i}#{$unit} !important;
+    }
+    .#{$prefix}-mr-#{$i} {
+      margin-right: #{$i}#{$unit} !important;
+    }
+    .#{$prefix}-mt-#{$i} {
+      margin-top: #{$i}#{$unit} !important;
+    }
+    .#{$prefix}-mb-#{$i} {
+      margin-bottom: #{$i}#{$unit} !important;
+    }
+    .#{$prefix}-mx-#{$i} {
+      margin-left: #{$i}#{$unit} !important;
+      margin-right: #{$i}#{$unit} !important;
+    }
+    .#{$prefix}-my-#{$i} {
+      margin-top: #{$i}#{$unit} !important;
+      margin-bottom: #{$i}#{$unit} !important;
+    }
+  }
+
+  @if $responsive {
+    @include breakpoint(small only) {
+      @for $i from 0 through $sizes {
+        .#{$prefix}-m-#{$i}\@small {
+          margin: #{$i}#{$unit} !important;
+        }
+        .#{$prefix}-ml-#{$i}\@small {
+          margin-left: #{$i}#{$unit} !important;
+        }
+        .#{$prefix}-mr-#{$i}\@small {
+          margin-right: #{$i}#{$unit} !important;
+        }
+        .#{$prefix}-mt-#{$i}\@small {
+          margin-top: #{$i}#{$unit} !important;
+        }
+        .#{$prefix}-mb-#{$i}\@small {
+          margin-bottom: #{$i}#{$unit} !important;
+        }
+        .#{$prefix}-mx-#{$i}\@small {
+          margin-left: #{$i}#{$unit} !important;
+          margin-right: #{$i}#{$unit} !important;
+        }
+        .#{$prefix}-my-#{$i}\@small {
+          margin-top: #{$i}#{$unit} !important;
+          margin-bottom: #{$i}#{$unit} !important;
+        }
+      }
+    }
+
+    @include breakpoint(medium) {
+      @for $i from 0 through $sizes {
+        .#{$prefix}-m-#{$i}\@medium {
+          margin: #{$i}#{$unit} !important;
+        }
+        .#{$prefix}-ml-#{$i}\@medium {
+          margin-left: #{$i}#{$unit} !important;
+        }
+        .#{$prefix}-mr-#{$i}\@medium {
+          margin-right: #{$i}#{$unit} !important;
+        }
+        .#{$prefix}-mt-#{$i}\@medium {
+          margin-top: #{$i}#{$unit} !important;
+        }
+        .#{$prefix}-mb-#{$i}\@medium {
+          margin-bottom: #{$i}#{$unit} !important;
+        }
+        .#{$prefix}-mx-#{$i}\@medium {
+          margin-left: #{$i}#{$unit} !important;
+          margin-right: #{$i}#{$unit} !important;
+        }
+        .#{$prefix}-my-#{$i}\@medium {
+          margin-top: #{$i}#{$unit} !important;
+          margin-bottom: #{$i}#{$unit} !important;
+        }
+      }
+    }
+
+    @include breakpoint(large) {
+      @for $i from 0 through $sizes {
+        .#{$prefix}-m-#{$i}\@large {
+          margin: #{$i}#{$unit} !important;
+        }
+        .#{$prefix}-ml-#{$i}\@large {
+          margin-left: #{$i}#{$unit} !important;
+        }
+        .#{$prefix}-mr-#{$i}\@large {
+          margin-right: #{$i}#{$unit} !important;
+        }
+        .#{$prefix}-mt-#{$i}\@large {
+          margin-top: #{$i}#{$unit} !important;
+        }
+        .#{$prefix}-mb-#{$i}\@large {
+          margin-bottom: #{$i}#{$unit} !important;
+        }
+        .#{$prefix}-mx-#{$i}\@large {
+          margin-left: #{$i}#{$unit} !important;
+          margin-right: #{$i}#{$unit} !important;
+        }
+        .#{$prefix}-my-#{$i}\@large {
+          margin-top: #{$i}#{$unit} !important;
+          margin-bottom: #{$i}#{$unit} !important;
+        }
+      }
+    }
+  }
+}
+
+@mixin site-circle($size: 5, $prefix: "u") {
+  .#{$prefix}-circle {
+    box-sizing: border-box;
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    border-style: solid;
+    font-size: inherit;
+  }
+  @for $i from 0 through $size {
+    .#{$prefix}-circle.#{$prefix}-circle-#{$i} {
+      @if $i!=0 {
+        border-width: ($i/30) * 1rem !important;
+      } @else {
+        border-width: 0 !important;
+      }
+    }
+  }
+}
+
+
+@mixin site-common{
+  .u-card-bgOverlay:before {
+    content: '';
+    background-color: rgba(0,0,0,.3);
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    background: -webkit-gradient(linear,left top,left bottom,from(rgba(45,45,45,0)),color-stop(80%,rgba(45,45,45,.95)));
+    background: -webkit-linear-gradient(top,rgba(45,45,45,0) 0,rgba(45,45,45,.95) 80%);
+    background: linear-gradient(to bottom,rgba(45,45,45,0) 0,rgba(45,45,45,.95) 80%);
+    z-index: 1;
+    border-bottom-left-radius: $site-radius;
+    border-bottom-right-radius: $site-radius;
+  }
+  .u-round{
+    border-radius: 1000px;
+  }
+
+  .u-cursor-pointer{
+    cursor: pointer;
+  }
+
+  .u-width-100{
+    width: 100%;
+  }
+
+  .body-bg{
+    background: url('../images/banner.jpg') repeat center center fixed !important;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    -webkit-background-size: cover;
+    background-size: cover;
+  }
+
+  .mat-button-disabled{
+    background-color: map-get($site-colors , grey3) !important;
+  }
+
+}
+
+@mixin site-all($site-colors
+,$site-unit
+,$site-responsive){
+  @include site-background($site-colors);
+  @include site-foreground($site-colors);
+  @include site-hover($site-colors);
+  @include site-link($site-colors);
+  @include site-padding($unit: $site-unit, $responsive: $site-responsive);
+  @include site-margin($unit: $site-unit, $responsive: $site-responsive);
+  @include site-common;
+  @include site-circle;
+}
+

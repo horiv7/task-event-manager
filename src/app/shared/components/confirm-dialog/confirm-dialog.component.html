@@ -1,0 +1,13 @@
+<div class="grid-x">
+  <div class="cell">
+    <h1 class="u-mb-0 u-fg-grey5">{{ dialogTitle }}</h1>
+    <hr class="u-mt-0"/>
+  </div>
+  <div class="cell u-mb-2">
+    {{data.message}}
+  </div>
+  <div class="cell actions">
+    <span><button type="button" mat-raised-button class="u-bg-primary u-fg-light" (click)="onYes()">Yes</button></span>
+    <button type="button" mat-stroked-button class="u-fg-secondary" (click)="onCancel()">Cancel</button>
+  </div>
+</div>

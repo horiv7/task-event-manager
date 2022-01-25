@@ -1,0 +1,35 @@
+@import 'assets/scss/foundation-sites/foundation';
+@import 'assets/scss/variables';
+@import 'assets/scss/site';
+
+
+html, body {
+  height: 100%;
+  width: 100%;
+  margin: 0;
+  border: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+
+body {
+ padding-top: $site-header-height;
+ color: map-get($site-colors, dark );
+ font-weight: 300 !important;
+ background-color: map-get($site-colors, grey1);
+}
+
+*{
+ box-sizing: border-box;
+}
+
+h1,h2,h3,h4,h5,h6{
+ font-weight: 100 !important;
+}
+
+@include mat-core();
+@include angular-material-theme($site-mat-theme);
+@include site-all($site-colors
+,$site-unit
+,$site-responsive);
+
+

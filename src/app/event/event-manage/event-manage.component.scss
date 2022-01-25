@@ -1,0 +1,32 @@
+.event-image{
+  max-width: 350px;
+  position: relative;
+}
+.even-uploader{
+  display: none;
+}
+
+.change-image{
+  width:5rem;
+  height:5rem;
+  margin:0;
+  left:50%;
+  top:50%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 0.5rem;
+}
+
+.remove-image{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  a{
+    display: flex;
+    align-items: center;
+  }
+}
+
