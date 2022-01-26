@@ -18,7 +18,7 @@ export class SearchPipe implements PipeTransform {
     return items.filter(it => {
       let item: any = null;
       
-      //TODO: Filter items accordingly
+      item= it[args[1]].toLocaleLowerCase().concat(it[args[2]].toLocaleLowerCase()).includes(filterText);
 
       return item;
     });
