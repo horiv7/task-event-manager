@@ -15,6 +15,7 @@ import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { environment } from '../environments/environment';
 import { StoreModule} from '@ngrx/store';
 import { HomeComponent } from './home/home.component';
+import { UserModule } from './user/user.module';
 
 
 @NgModule({
@@ -33,7 +34,8 @@ import { HomeComponent } from './home/home.component';
     SharedModule,
     MaterialModule,
     EventModule,
-    StoreModule.forRoot({}, {}),
+    UserModule,
+    StoreModule.forRoot([]),
     EffectsModule.forRoot([]),
     StoreDevtoolsModule.instrument({ maxAge: 25, logOnly: environment.production }),
   ],

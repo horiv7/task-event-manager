@@ -1,0 +1,23 @@
+<mat-card class="event" *ngIf="user">
+  <img src="../../../assets/images/portrait_black_24dp.svg" class="u-card-bgOverlay event-image image-loading"
+    placeholder="assets/images/placeholder.png">
+  <div class="event-content overflow-hidden">
+    <h2 class="event-title overflow-hidden">{{ user.fullname }}</h2>
+    <div class="event-address">
+      <mat-icon>person</mat-icon>{{ user.username }}
+    </div>
+    <div class="event-address">
+      <mat-icon>mail</mat-icon>{{ user.email }}
+    </div>
+
+    <div class="event-actions u-mt-1">
+      <a class="u-round label event-actions-item u-cursor-pointer u-bg-secondary u-lnk-light u-hvr-alpha25"
+        (click)="onEditUser()">edit</a>
+      <a class="u-round label event-actions-item u-cursor-pointer u-bg-error u-lnk-light u-hvr-alpha25"
+        (click)="onDeleteUser()">delete</a>
+      <a *ngIf="user.username" class="event-actions-icon u-lnk-grey5 u-hvr-alpha25">
+        <mat-icon [matTooltip]="user.username" class="u-cursor-pointer">info</mat-icon>
+      </a>
+    </div>
+  </div>
+</mat-card>

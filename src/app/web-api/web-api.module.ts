@@ -5,7 +5,7 @@ import { WebApiService } from './web-api.service';
 @NgModule({
   declarations: [],
   imports: [
-    HttpClientInMemoryWebApiModule.forRoot(WebApiService)
+    HttpClientInMemoryWebApiModule.forRoot(WebApiService),
   ]
 })
 export class WebApiModule { }

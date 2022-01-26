@@ -1,0 +1,25 @@
+@import '../../../assets/scss/variables';
+
+
+.add-new{
+  min-height: 400px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 10px 20px 0px map-get($site-colors, alpha25);
+  &-icon{
+    width: 6rem;
+    height: 6rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    .mat-icon{
+      width:100px;
+      height: 100px;
+    }
+    .material-icons{
+      font-size: 100px;;
+    }
+  }
+}

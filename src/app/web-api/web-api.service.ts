@@ -59,8 +59,36 @@ export class WebApiService implements InMemoryDbService {
         image: 'https://picsum.photos/id/237/800/600'
       }
     ];
+    const users = [
+      {
+        id: 1,
+        fullname: "Paul",
+        email: "Paul@mail.com",
+        username: 'paul'
+      },
+      {
+        id: 2,
+        fullname: "Mathew",
+        email: "mathew@mail.com",
+        username: 'mathew'
+      },
+      {
+        id: 3,
+        fullname: "Mark",
+        email: "mark@mail.com",
+        username: 'mark'
+      },
+      {
+        id: 4,
+        fullname: "Jonathan",
+        email: "jonathan@mail.com",
+        username: 'jonathan'
+      },
 
-    return { events };
+
+    ];
+
+    return { events, users };
   }
 
   genId(events: any[]): number {

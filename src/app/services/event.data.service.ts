@@ -1,7 +1,7 @@
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable, throwError } from 'rxjs';
-import { catchError, map } from 'rxjs/operators';
+import { catchError, map ,tap} from 'rxjs/operators';
 import { Event, EventAdapter } from '../models/event.model';
 import * as moment from 'moment';
 
@@ -12,7 +12,6 @@ export class EventDataService {
     private adapter: EventAdapter) { }
 
   get(): Observable<Event[]> {
-    console.log('get');
     return this.http
       .get<Event[]>('events')
       .pipe(
@@ -22,7 +21,6 @@ export class EventDataService {
   }
 
   save(event: Event): Observable<Event> {
-    console.log('save');
     return this.http
       .post('events',
         {
@@ -49,6 +47,8 @@ export class EventDataService {
           image: event.image,
         })
       .pipe(
+        tap(r=>console.log(r)),
+
         catchError(this.handleError)
       );
   }

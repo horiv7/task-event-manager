@@ -1,0 +1,35 @@
+<mat-dialog-content>
+    <div class="grid-container">
+        <div class="grid-x grid-padding-x">
+            <div class="cell">
+                <h2 class="u-mb-0 u-fg-grey5">{{ dialogTitle }}</h2>
+                <hr class="u-mt-0" />
+            </div>
+            <div class="cell small-12 medium-6 medium-order-1">
+                <form [formGroup]="form" (ngSubmit)="onSubmitForm()">
+                    <mat-form-field appearance="fill" class="u-width-100">
+                        <mat-label>Fullname</mat-label>
+                        <input matInput formControlName="fullname" required />
+                    </mat-form-field>
+                    <mat-form-field appearance="fill" class="u-width-100">
+                        <mat-label>email</mat-label>
+                        <input matInput formControlName="email" required 
+                            placeholder="The address must be at least 10 characters long" />
+                    </mat-form-field>
+                    <mat-form-field appearance="fill" class="u-width-100">
+                        <mat-label>Username</mat-label>
+                        <input matInput formControlName="username" required />
+                    </mat-form-field>
+                    <div class="u-mt-1">
+                        <span class="u-mr-1">
+                            <button type="submit" mat-raised-button class="u-bg-primary u-fg-light"
+                                [disabled]="!form.valid">Submit</button>
+                        </span>
+                        <button type="button" mat-stroked-button class="u-fg-secondary"
+                            (click)="onCancel()">Cancel</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</mat-dialog-content>

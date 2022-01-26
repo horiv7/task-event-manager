@@ -1,0 +1,108 @@
+@import "../../../assets/scss/variables";
+
+
+.mat-card {
+    padding: 0;
+}
+
+.event {
+    min-height: 400px;
+    display: flex;
+    flex-direction: column;
+    box-shadow: 0 10px 20px 0px map-get($site-colors, alpha25);
+
+    &-content {
+        padding: 1rem;
+        display: flex;
+        flex-direction: column;
+        border-bottom-left-radius: $site-radius;
+        border-bottom-right-radius: $site-radius;
+        position: absolute;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        background-color: map-get($site-colors, light);
+        border-top: 1px solid map-get($site-colors, grey3) !important;
+    }
+
+    h2,
+    .event-address {
+        font-weight: bold !important;
+    }
+
+    &-image {
+        border-radius: $site-radius;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        object-position: center;
+        object-fit: cover;
+    }
+
+    .image-loading {
+        background-image: url('../../../assets/images/loading.gif');
+        background-repeat: no-repeat;
+        background-position-x: 50%;
+    }
+
+
+    &-title {
+        margin-bottom: 0.3rem !important;
+    }
+
+    &-address {
+        display: flex;
+        align-items: center;
+        margin-top: auto;
+        color: map-get($site-colors, grey5);
+        font-size: 0.8rem;
+    }
+
+
+
+    &-info {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        max-width: 65px;
+        background-color: map-get($site-colors, secondary);
+        margin-top: 0.5rem;
+    }
+
+    &-delete {
+        position: absolute;
+        right: 0.9rem;
+        bottom: 0.5rem;
+        cursor: pointer;
+
+        button {
+            outline: none;
+        }
+    }
+
+    &-actions {
+        display: flex;
+        justify-content: flex-end;
+        flex-direction: row;
+        color: map-get($site-colors, light);
+
+        &-item {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 65px;
+            margin-right: 1rem;
+        }
+
+        &-icon {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-right: 1rem;
+        }
+    }
+}
