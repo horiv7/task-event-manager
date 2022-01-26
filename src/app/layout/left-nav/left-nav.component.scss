@@ -1,6 +1,6 @@
 @import '../../../assets/scss/variables';
 
-$menu-bg: map-get($site-colors, primary);
+$menu-bg: map-get($site-colors, blue2);
 $menu-fg: map-get($site-colors, light);
 $menu-opacity: 0.8;
 .mat-list-base {

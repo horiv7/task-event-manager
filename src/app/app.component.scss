@@ -1,7 +1,7 @@
 @import '../assets/scss/variables';
 
 
-$sidenav-bg: map-get($site-colors, primary);
+$sidenav-bg: map-get($site-colors, blue1);
 $sidenav-fg: map-get($site-colors, light);
 $sidenav-opacity: 0.8;
 $content-bg: map-get($site-colors, grey1);
