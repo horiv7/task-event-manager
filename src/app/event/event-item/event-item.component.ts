@@ -8,6 +8,7 @@ import { EventManageComponent } from '../event-manage/event-manage.component';
 import { EventDataService } from '../../services/event.data.service';
 import { eventActions } from '../store/event.action.types';
 import { EventState } from '../store/reducers';
+import { eventDeleted } from '../store/event.actions';
 
 @Component({
   selector: 'app-event-item',
@@ -57,5 +58,9 @@ export class EventItemComponent implements OnInit {
   }
 
   private delete(): void {
+    this.eventDataService.delete(this.event).subscribe( 
+      ()=>this.store.dispatch(eventDeleted(this.event))
+      ) 
+
   }
 }
