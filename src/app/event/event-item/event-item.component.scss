@@ -85,6 +85,7 @@
   &-actions {
     display: flex;
     flex-direction: row;
+    justify-content: flex-end;
     color: map-get($site-colors, light);
 
     &-item {
