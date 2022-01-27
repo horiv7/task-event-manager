@@ -1,6 +1,14 @@
-# EventManager
+# Angular Assigment - EventManager
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 10.1.4.
+![Tasks](./assigment.jpg)
+
+## Notes
+
+- Completed tasks are separated by **commits** and **#number** for each task(excluding 1 and 4 which I forgot to mark with number).  
+
+- The starting code is marked as a _first commit_.
+
+- It tried to stay in the same style as in the delivered code. Although some things are structured in a different way than the style recommended by Angular.
 
 ## Development server
 
