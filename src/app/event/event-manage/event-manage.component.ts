@@ -46,6 +46,7 @@ export class EventManageComponent implements OnInit {
       name: [null, Validators.compose([Validators.required, Validators.minLength(1), Validators.maxLength(this.nameMaxLength)])],
       address: [null, Validators.required],
       date: [null, Validators.required],
+      time: [null, Validators.required],
       info: [null, Validators.maxLength(this.infoMaxLength)]
     };
     this.form = this.formBuilder.group(formElements);
@@ -54,11 +55,14 @@ export class EventManageComponent implements OnInit {
       if (f.date) {
         this.form.patchValue({
           date: new Date(moment(f.date).format('M/DD/YYYY'))
-        }, { emitEvent: false });
+        }, { emitEvent: false }),
+        {
+          time: moment(f.date).format("HH:mm")
+        }
       }
     });
     if (this.mode === 'edit') {
-      this.form.patchValue({ ...this.event });
+      this.form.patchValue({ ...this.event, time: moment(this.event.date).format("HH:mm") });
     }
   }
 
@@ -71,6 +75,7 @@ export class EventManageComponent implements OnInit {
       const change: Event = {
         ...this.event,
         ...this.form.value,
+        date: moment(this.form.value.date).add(this.form.value.time, 'HH:mm').toDate(),
         image: this.image
       };
 

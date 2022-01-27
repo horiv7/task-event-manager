@@ -1,17 +1,25 @@
 <mat-card class="event">
- <img [src]="event.image" class="u-card-bgOverlay event-image image-loading" placeholder="assets/images/placeholder.png">
+  <img [src]="event.image" class="u-card-bgOverlay event-image image-loading"
+    placeholder="assets/images/placeholder.png">
   <div class="event-content overflow-hidden">
     <h2 class="event-title overflow-hidden">{{ event.name }}</h2>
     <div class="event-address">
-        <mat-icon>location_on</mat-icon>{{ event.address }}
+      <mat-icon>location_on</mat-icon>{{ event.address }}
     </div>
     <div class="event-date">
-      <mat-icon>timer</mat-icon>{{ event.date | date: "dd MMM yyyy" }}
+      <mat-icon>calendar_month</mat-icon>{{ event.date | date: "dd MMM yyyy" }}
+    </div>
+    <div class="event-date">
+      <mat-icon>timer</mat-icon>{{ event.date | date: "HH:mm" }}
     </div>
     <div class="event-actions u-mt-1">
-      <a class="u-round label event-actions-item u-cursor-pointer u-bg-secondary u-lnk-light u-hvr-alpha25" (click)="onEditEvent()">edit</a>
-      <a class="u-round label event-actions-item u-cursor-pointer u-bg-error u-lnk-light u-hvr-alpha25" (click)="onDeleteEvent()">delete</a>
-      <a *ngIf="event.info" class="event-actions-icon u-lnk-grey5 u-hvr-alpha25"><mat-icon [matTooltip]="event.info" class="u-cursor-pointer">info</mat-icon></a>
+      <a class="u-round label event-actions-item u-cursor-pointer u-bg-secondary u-lnk-light u-hvr-alpha25"
+        (click)="onEditEvent()">edit</a>
+      <a class="u-round label event-actions-item u-cursor-pointer u-bg-error u-lnk-light u-hvr-alpha25"
+        (click)="onDeleteEvent()">delete</a>
+      <a *ngIf="event.info" class="event-actions-icon u-lnk-grey5 u-hvr-alpha25">
+        <mat-icon [matTooltip]="event.info" class="u-cursor-pointer">info</mat-icon>
+      </a>
     </div>
   </div>
 </mat-card>

@@ -1,54 +1,58 @@
 <mat-dialog-content>
-<div class="grid-container">
-  <div class="grid-x grid-padding-x">
-    <div class="cell">
-      <h2 class="u-mb-0 u-fg-grey5">{{ dialogTitle }}</h2>
-      <hr class="u-mt-0" />
-    </div>
-    <div class="cell small-12 medium-6 medium-order-2 u-mb-1@small">
-      <div *ngIf="image" class="remove-image u-mb-1">
-        <a class="u-cursor-pointer u-lnk-error u-hvr-grey5" (click)="onRemoveImage()"><span>
-            <mat-icon>delete</mat-icon>
-          </span>Remove Image</a>
+  <div class="grid-container">
+    <div class="grid-x grid-padding-x">
+      <div class="cell">
+        <h2 class="u-mb-0 u-fg-grey5">{{ dialogTitle }}</h2>
+        <hr class="u-mt-0" />
       </div>
-      <mat-card (click)="onChangeImage()" class="event-image u-cursor-pointer">
-        <img [src]="image" placeholder="assets/images/placeholder.png" />
-        <div class="u-circle u-circle-0 position-absolute u-bg-alpha50 u-fg-light change-image">
-          <span>{{this.image?'Change Image':'Add Image'}}</span>
+      <div class="cell small-12 medium-6 medium-order-2 u-mb-1@small">
+        <div *ngIf="image" class="remove-image u-mb-1">
+          <a class="u-cursor-pointer u-lnk-error u-hvr-grey5" (click)="onRemoveImage()"><span>
+              <mat-icon>delete</mat-icon>
+            </span>Remove Image</a>
         </div>
-      </mat-card>
-    </div>
-    <div class="cell small-12 medium-6 medium-order-1">
-      <form [formGroup]="form" (ngSubmit)="onSubmitForm()">
-        <mat-form-field appearance="fill" class="u-width-100">
-          <mat-label>Name</mat-label>
-          <input matInput formControlName="name" [maxlength]="nameMaxLength" required />
-        </mat-form-field>
-        <mat-form-field appearance="fill" class="u-width-100">
-          <mat-label>Address</mat-label>
-          <input matInput formControlName="address" required />
-        </mat-form-field>
-        <mat-form-field appearance="fill" class="u-width-100">
-          <mat-label>Date</mat-label>
-          <input matInput [matDatepicker]="picker" formControlName="date" required />
-          <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
-          <mat-datepicker #picker></mat-datepicker>
-        </mat-form-field>
-        <mat-form-field appearance="fill" class="u-width-100">
-          <mat-label>Details</mat-label>
-          <textarea #info matInput formControlName="info" [maxlength]="infoMaxLength"></textarea>
-          <mat-hint>{{infoMaxLength-(info.value.length)}}</mat-hint>
-        </mat-form-field>
-        <div class="u-mt-1">
-          <input type="file" #uploader class="even-uploader" accept="image/*" (change)="onImageUpload($event)">
-          <span class="u-mr-1">
-            <button type="submit" mat-raised-button class="u-bg-primary u-fg-light"
-              [disabled]="!form.valid">Submit</button>
-          </span>
-          <button type="button" mat-stroked-button class="u-fg-secondary" (click)="onCancel()">Cancel</button>
-        </div>
-      </form>
+        <mat-card (click)="onChangeImage()" class="event-image u-cursor-pointer">
+          <img [src]="image" placeholder="assets/images/placeholder.png" />
+          <div class="u-circle u-circle-0 position-absolute u-bg-alpha50 u-fg-light change-image">
+            <span>{{this.image?'Change Image':'Add Image'}}</span>
+          </div>
+        </mat-card>
+      </div>
+      <div class="cell small-12 medium-6 medium-order-1">
+        <form [formGroup]="form" (ngSubmit)="onSubmitForm()">
+          <mat-form-field appearance="fill" class="u-width-100">
+            <mat-label>Name</mat-label>
+            <input matInput formControlName="name" [maxlength]="nameMaxLength" required />
+          </mat-form-field>
+          <mat-form-field appearance="fill" class="u-width-100">
+            <mat-label>Address</mat-label>
+            <input matInput formControlName="address" required />
+          </mat-form-field>
+          <mat-form-field appearance="fill" class="u-width-100">
+            <mat-label>Date</mat-label>
+            <input matInput [matDatepicker]="picker" formControlName="date" required />
+            <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+            <mat-datepicker #picker></mat-datepicker>
+          </mat-form-field>
+          <mat-form-field appearance="fill" class="u-width-100">
+            <mat-label>Time</mat-label>
+            <input matInput formControlName="time" type="time" placeholder="Time " />
+          </mat-form-field>
+          <mat-form-field appearance="fill" class="u-width-100">
+            <mat-label>Details</mat-label>
+            <textarea #info matInput formControlName="info" [maxlength]="infoMaxLength"></textarea>
+            <mat-hint>{{infoMaxLength-(info.value.length)}}</mat-hint>
+          </mat-form-field>
+          <div class="u-mt-1">
+            <input type="file" #uploader class="even-uploader" accept="image/*" (change)="onImageUpload($event)">
+            <span class="u-mr-1">
+              <button type="submit" mat-raised-button class="u-bg-primary u-fg-light"
+                [disabled]="!form.valid">Submit</button>
+            </span>
+            <button type="button" mat-stroked-button class="u-fg-secondary" (click)="onCancel()">Cancel</button>
+          </div>
+        </form>
+      </div>
     </div>
   </div>
-</div>
 </mat-dialog-content>
