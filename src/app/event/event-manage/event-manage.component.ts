@@ -25,6 +25,7 @@ export class EventManageComponent implements OnInit {
   mode: 'edit' | 'create';
   nameMaxLength = 30;
   infoMaxLength = 200;
+  addressMinLength = 10;
   unsavedChanges = false;
   @ViewChild('uploader') uploader: ElementRef;
   private file: File = null;
